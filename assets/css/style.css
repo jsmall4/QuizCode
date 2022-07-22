@@ -1,0 +1,98 @@
+/* setting for all boxing sizing elements and font family for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/* global variables for color,  using hsl hue - blue, red, green */
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
+/* Settings for body - color, positioning and padding & margin */
+body {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+}
+
+/* settings to be called to display green background (body) when the correct answer is entered */
+body.correct {
+  --hue: var(--hue-correct);
+}
+
+/* /* settings to be called to display red background (body) when the wrong answer is entered */
+*/ body.wrong {
+  --hue: var(--hue-wrong);
+}
+
+/* settings for the container box, sizing with a responsize max size, decoration and color to box */
+.container {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+  width: 800px;
+  max-width: 80%;
+}
+
+/* positioning for the answer buttons using CSS grid in a row */
+.btn-grid {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* decoration and color to answer buttons, as well as next & start btn */
+.btn {
+  --hue: var(--hue-neutral);
+  background-color: hsl(var(--hue), 100%, 60%);
+  border: 2px solid hsl(var(--hue), 100%, 20%);
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+/* setting for the mouse to hover and change properties of btn */
+.btn:hover {
+  background-color: hsl(var(--hue), 50%, 20%);
+}
+
+/* color for the btn to change to when correct answer */
+.btn.correct {
+  --hue: var(--hue-correct);
+}
+
+/* color for the btn to change to when wrong answer */
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
+/* combined CSS both start and next button font size and margin */
+.start-btn,
+.next-btn {
+  font-size: 100%;
+  margin: 10px;
+}
+
+/* settings for the control container to be centred */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* properties to hide an element when called in JS */
+.hide {
+  display: none;
+}

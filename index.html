@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- link to CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Unique Title -->
+    <title>QuizCode</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Container for the question box with a class of hide, so the question can be displayed as none later.  -->
+      <div id="question-container" class="hide">
+        <!-- box for question text -->
+        <div id="question">Question</div>
+        <!-- answer button boxes - with a grid class to be ref: in css, and btn ID for eventListener on click -->
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
+      </div>
+      <!-- box for the next and start button, also with ID and class to be referenced in CSS and JS later -->
+      <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
+      </div>
+    </div>
+    <!-- Link to JS  -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
