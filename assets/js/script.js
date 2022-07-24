@@ -1,4 +1,5 @@
-// global variables
+// global variables & constants
+// interface
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const questionContainerElement = document.getElementById("question-container");
@@ -7,10 +8,24 @@ const answerButtonsElements = document.getElementById("answer-buttons");
 
 let shuffledQuestions, currentQuestionIndex;
 
-// when clicked execute fucnction to start game, and execute next question on click
-startButton.addEventListener("click", startGame);
+// timer
+const startingTime = 1; // starting time 1 min
+let time = startingTime * 60; // converting time to seconds
+const timerEl = document.getElementById("timer"); // ref HTML id timer
+
+// highscores
+let currentQuestion = {};
+let acceptance = true;
+let score = 0;
+let questionCounter = 0;
+let remainingQuestions = [];
+const incorrectPenalty = // look up how to do minus 10sec
+  // when clicked execute fucnction to start game, and execute next question on click
+  startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
+
+  startTimer(); // added to listen for click on start?
   setNext();
 });
 
@@ -22,7 +37,23 @@ function startGame() {
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
   setNext();
+  // startTimer();
 }
+
+// timer settings to start & reset timer func
+function startTimer() {
+  console.log("start timer"); // not logging until first question is answered
+  timerEl = setInterval(startTimer, 1000); // issue here !!!!!!!! - execution of function continously - how often is going to call the function 1000 milliseconds = 1 sec
+  // runs continous error - needs else statement? - but timer doesnt start??
+  const minutes = Math.floor(time / 60); // coverting back to minutes, using math floor to round down to nearest integer
+  let seconds = time % 60; // time is equal to 60 - 1min, but anything less is seconds
+  seconds = seconds < 10 ? "0" + seconds : seconds; // ternary operator -- look up!! - like an if statement? - check condition ? do this : do that
+  timerEl.innerHTML = `${minutes}:${seconds}`;
+
+  time--;
+}
+
+function resetTimer() {}
 
 // function to show next shuffled question
 function setNext() {
