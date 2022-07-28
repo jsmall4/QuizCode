@@ -29,6 +29,7 @@ const questions = [
       { text: "Higher Type Message Linguistics", correct: false },
       { text: "Hungry Tigers Might Levitate", correct: false },
       { text: "Hollow Trees May Lean", correct: false },
+      //answer: 1,
     ],
   },
   {
@@ -140,12 +141,15 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
-    startButton.innerText = "Restart";
-    startButton.classList.remove("hide");
+    endGame();
   }
-  if (selectAnswer === "correct") {
+  if (selectAnswer === correct) {
     score++;
   }
+}
+function endGame() {
+  startButton.innerText = "Restart";
+  startButton.classList.remove("hide");
 }
 
 // settings for applying the correct or wrong color scheme when the user picks and answer
