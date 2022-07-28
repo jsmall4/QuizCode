@@ -31,6 +31,6 @@ I also need to fix the bug with the timer decreasing below 0secs and the game sh
 ![Screenshot 2022-07-28 at 20 24 49](https://user-images.githubusercontent.com/64646369/181620963-5c4d057c-d784-48e2-8697-9a162dfeecfa.png)
 ![Screenshot 2022-07-28 at 20 24 55](https://user-images.githubusercontent.com/64646369/181620965-041326f6-1080-49a6-a4ee-f1db6340138e.png)
 
-# Live URL:
+# Live URL: https://jsmall4.github.io/QuizCode/
 
-# GitHub Repo:
+# GitHub Repo: https://github.com/jsmall4/QuizCode
