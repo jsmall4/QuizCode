@@ -19,7 +19,6 @@ let acceptance = true;
 let score = 0;
 let questionCounter = 0;
 let remainingQuestions = [];
-// const choices = Array.from(document.querySelectorAll(.text)); // array of question and answers
 
 // array of questions to be called
 const questions = [
@@ -30,7 +29,6 @@ const questions = [
       { text: "Higher Type Message Linguistics", correct: false },
       { text: "Hungry Tigers Might Levitate", correct: false },
       { text: "Hollow Trees May Lean", correct: false },
-      // answer: 1,
     ],
   },
   {
@@ -87,9 +85,14 @@ function startTimer() {
 function countdown() {
   startingTime--;
   timerEl.innerHTML = `0:${startingTime}`;
+  if (startingTime <= 0) {
+    resetTimer(); // check this! - need to fix
+  }
 }
 
-function resetTimer() {}
+function resetTimer() {
+  clearInterval(startingTime);
+}
 
 // function to show next shuffled question
 function setNext() {
@@ -140,6 +143,9 @@ function selectAnswer(e) {
     startButton.innerText = "Restart";
     startButton.classList.remove("hide");
   }
+  if (selectAnswer === "correct") {
+    score++;
+  }
 }
 
 // settings for applying the correct or wrong color scheme when the user picks and answer
@@ -157,6 +163,10 @@ function clearQuestion(elememt) {
   elememt.classList.remove("correct");
   elememt.classList.remove("wrong");
 }
+
+function correctAnswer() {}
+
+function wrongAnswer() {}
 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
